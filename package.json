@@ -1,0 +1,25 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "mysql_bamazon",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LIZETHVERA/bamazon.git"
+  },
+  "keywords": [
+    "bamazon\\"
+  ],
+  "author": "vera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LIZETHVERA/bamazon/issues"
+  },
+  "homepage": "https://github.com/LIZETHVERA/bamazon#readme",
+  "dependencies": {
+    "mysql": "^2.17.1"
+  }
+}
