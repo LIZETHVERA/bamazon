@@ -1,5 +1,6 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
+var empty = require('is-empty');
 
 var connection = mysql.createConnection({
   host: "localhost",
@@ -46,7 +47,7 @@ function runUserBuy() {
         type: "input",
         message: "What is the product ID you want to buy?",
         validate: function (value) {
-          if (isNaN(value) === false) {
+          if (isNaN(value) === false && !value == "") {
             return true;
           }
           console.log("Please introduce a number");
@@ -58,9 +59,8 @@ function runUserBuy() {
         type: "input",
         message: "How many units of the product would you like to buy?: ",
         validate: function (value) {
-          if (isNaN(value) === false) {
-
-            return true;
+          if (isNaN(value) === false && !value == "") {
+             return true;
 
           }
           console.log("Please introduce a number");
@@ -80,7 +80,7 @@ function runUserBuy() {
           var stockAvaible = (res[i].stock_quantity);
           console.log(stockAvaible);
           console.log("The product you have selected is: " + res[i].product_name + ". with the ID number: " + res[i].item_id);
-        
+
 
           if (stockAvaible > 0) {
 
@@ -96,17 +96,17 @@ function runUserBuy() {
               ],
               function (err, res) {
                 console.log(res.affectedRows + " Your order was processed Thank you for buying with us!\n");
-                          
+
                 // Call deleteProduct AFTER the UPDATE completes
 
               }
             );
-            console.log("The unit price is: " + res[i].price );
+            console.log("The unit price is: " + res[i].price);
             console.log("The total cost of your purchase is: " + (res[i].price * answer.units));
 
 
             // console.log("No se que es" + updateStock.sql);
-          }else {
+          } else {
             console.log("Sorry, Insufficient quantity!")
           }
           // console.log((res[i].stock_quantity) - answer.units);
