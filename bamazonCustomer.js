@@ -80,6 +80,7 @@ function runUserBuy() {
           var stockAvaible = (res[i].stock_quantity);
           console.log(stockAvaible);
           console.log("The product you have selected is: " + res[i].product_name + ". with the ID number: " + res[i].item_id);
+        
 
           if (stockAvaible > 0) {
 
@@ -95,10 +96,14 @@ function runUserBuy() {
               ],
               function (err, res) {
                 console.log(res.affectedRows + " Your order was processed Thank you for buying with us!\n");
+                          
                 // Call deleteProduct AFTER the UPDATE completes
 
               }
             );
+            console.log("The unit price is: " + res[i].price );
+            console.log("The total cost of your purchase is: " + (res[i].price * answer.units));
+
 
             // console.log("No se que es" + updateStock.sql);
           }else {
