@@ -1,6 +1,7 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
 var empty = require('is-empty');
+var Table = require('cli-table');
 
 var connection = mysql.createConnection({
   host: "localhost",
@@ -17,26 +18,52 @@ var connection = mysql.createConnection({
   database: "bamazonDB"
 });
 
-// connection.connect(function(err) {
-//     if (err) throw err;
-//     console.log("connected as id " + connection.threadId);
-//     afterConnection();
-//   });
-
-// function afterConnection() {
-//   connection.query("SELECT * FROM products", function(err, res) {
-//     if (err) throw err;
-//     console.log(res);
-//     connection.end();
-//   });
-// }
 
 
 connection.connect(function (err) {
   if (err) throw err;
 
-  runUserBuy();
+  start();
 });
+
+function start() {
+  inquirer.prompt({
+    name: "action",
+    type: "list",
+    message: "What would you like to do?",
+
+    choices: [
+      "See the list of products",
+      "Buy a product by ID",
+      "exit"
+    ]
+  })
+  .then(function(answer) {
+    switch (answer.action) {
+      case "See the list of products":
+        displayProducts();
+        break;
+
+        case "Buy a product by ID":
+        runUserBuy();
+        break;
+
+        case "exit":
+        connection.end();
+        break;
+    }
+  });
+}
+
+function displayProducts() {
+  connection.query("SELECT * FROM products", function(err, res) {
+    for (var i = 0; i < res.length; i++) {
+      console.log(res[i].item_id + " | " + res[i].product_name + " | " + res[i].department_name + " | " + res[i].price );
+    }
+    console.log("-----------------------------------");
+  });
+}
+
 
 
 function runUserBuy() {
@@ -71,6 +98,7 @@ function runUserBuy() {
     ]).then(function (answer) {
       // console.log(answer.id);
       // console.log(answer.units)
+
       var query = "SELECT item_id, product_name, department_name, price, stock_quantity from products WHERE ?";
       connection.query(query, { item_id: answer.id }, function (err, res) {
 
