@@ -101,6 +101,8 @@ function runUserBuy() {
             );
 
             // console.log("No se que es" + updateStock.sql);
+          }else {
+            console.log("Sorry, Insufficient quantity!")
           }
           // console.log((res[i].stock_quantity) - answer.units);
         }
