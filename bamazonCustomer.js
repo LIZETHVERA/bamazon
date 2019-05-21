@@ -1,6 +1,5 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
-var empty = require('is-empty');
 var Table = require('cli-table3');
 
 var connection = mysql.createConnection({
@@ -23,7 +22,7 @@ var connection = mysql.createConnection({
 connection.connect(function (err) {
   if (err) throw err;
 
-  start();
+  start()
 });
 
 function start() {
@@ -42,8 +41,8 @@ function start() {
       switch (answer.action) {
         case "See the list of products":
           displayProducts();
-          secondMenu()
           break;
+
 
         case "Buy a product by ID":
           runUserBuy();
@@ -56,20 +55,20 @@ function start() {
     });
 }
 
-function secondMenu(){
+function secondMenu() {
   inquirer.prompt({
     name: "action",
     type: "confirm",
     message: "Would you like to buy a product?",
-}).then(function(answer) {
-  // console.log(answer);
-  
-  if (answer.action == true){
-    runUserBuy();
-  } else {
-    connection.end();
-  }
-});
+  }).then(function (answer) {
+    // console.log(answer);
+
+    if (answer.action == true) {
+      runUserBuy();
+    } else {
+      connection.end();
+    }
+  });
 
 }
 
@@ -79,8 +78,8 @@ function displayProducts() {
     // Cli-Table display code with Color
     var table = new Table(
       {
-        head: ["ID", "Product Name", "Department Name", "Quantity","Price"],
-        colWidths: [5, 40, 20, 12,12],
+        head: ["ID", "Product Name", "Department Name", "Quantity", "Price"],
+        colWidths: [5, 40, 20, 12, 12],
       });
 
     // Set/Style table headings and Loop through entire inventory
@@ -90,7 +89,7 @@ function displayProducts() {
       );
     }
     console.log(table.toString());
-
+    secondMenu();
 
   });
 
@@ -156,14 +155,15 @@ function runUserBuy() {
                 }
               ],
               function (err, res) {
-                console.log(res.affectedRows + " Your order was processed Thank you for buying with us!\n");
+                // console.log(res.affectedRows );
 
-               
+
               }
             );
             console.log("The unit price is: " + res[i].price);
             console.log("The total cost of your purchase is: " + (res[i].price * answer.units));
-          
+            console.log("Your order was processed Thank you for buying with us!\n");
+
             // Case escenario 2: We have some units available but not the whole order. 
           } else if (stockAvaible > 0 && answer.units > stockAvaible) {
 
@@ -173,13 +173,15 @@ function runUserBuy() {
             // Case escenario 2: We dont have anything. 
             console.log("Sorry, Insufficient quantity!");
           }
-          // console.log((res[i].stock_quantity) - answer.units);
+          // console.log((res[i].stock_quantity) - answer.units);\\
+          secondMenu();
         }
-
+        
       });
 
 
     });
+
 }
 
 
