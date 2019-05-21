@@ -7,7 +7,7 @@ This is an app with Customer View:
 
 1. With the command node `bamazonCustomer.js` we can acces to the principal menu:
 
- * See the list of products:  is avaiable to show the list of  products.
+ * See the list of products:  is available to show the list of  products.
  
  * Buy a product by ID: Open with two questions
    1. What is the product ID you want to buy? (The user have to enter the number ID). 
@@ -17,7 +17,7 @@ This is an app with Customer View:
 
 2. Case escenario: 
 * Insufficient quantity
-* The product you have selected is avaiable in stock: 
+* The product you have selected is available in stock: 
 
   * The app shows:  
     * The product
