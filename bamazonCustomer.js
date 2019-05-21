@@ -119,8 +119,8 @@ function runUserBuy() {
         type: "input",
         message: "How many units of the product would you like to buy?: ",
         validate: function (value) {
-          if (isNaN(value) === false && !value == "" && !value === 0) {
-            
+          if (isNaN(value) === false && !value == "") {
+
              return true;
 
           }
