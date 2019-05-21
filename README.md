@@ -16,15 +16,16 @@ This is an app with Customer View:
  * exit: To leave the app. 
 
 2. Case escenario: 
-  1. Insufficient quantity
-  2. The product you have selected is available in stock: 
 
-  * The app shows:  
-    * The product
-    * The unit price
-    * The total cost of the purchase
-    
-  3. The user did not enter any value or letter. 
+  * Insufficient quantity
+  * The product you have selected is available in stock: 
+
+    * The app shows:  
+      * The product
+      * The unit price
+      * The total cost of the purchase
+
+  * The user did not enter any value or letter. 
     * The app says:
       * Please enter a number
  
