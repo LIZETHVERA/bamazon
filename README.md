@@ -5,7 +5,7 @@ The app will take in orders from customers and deplete stock from the store's in
 ## Overview:
 This is an app with Customer View: 
 
-1. With the command node `bamazonCustomer.js` we can acces to the principal menu:
+### 1. With the command node `bamazonCustomer.js` we can acces to the principal menu:
 
  * See the list of products:  is available to show the list of  products.
  
@@ -15,7 +15,7 @@ This is an app with Customer View:
  
  * exit: To leave the app. 
 
-2. Case escenario: 
+### 2. Case escenario: 
 
   * Insufficient quantity
   * The product you have selected is available in stock: 
@@ -29,7 +29,7 @@ This is an app with Customer View:
     * The app says:
       * Please enter a number
  
-3. This is how the app works:
+### 3. This is how the app works:
 
 ## Gif embeded video:
 
