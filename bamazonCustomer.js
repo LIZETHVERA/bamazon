@@ -66,6 +66,7 @@ function secondMenu() {
     if (answer.action == true) {
       runUserBuy();
     } else {
+      console.log("Thank you!!");
       connection.end();
     }
   });
@@ -118,11 +119,14 @@ function runUserBuy() {
         type: "input",
         message: "How many units of the product would you like to buy?: ",
         validate: function (value) {
-          if (isNaN(value) === false && !value == "") {
-            return true;
+          if (isNaN(value) === false && !value == "" && !value === 0) {
+            
+             return true;
 
           }
+         
           console.log("Please introduce a number");
+          
           return false;
 
         }
@@ -135,8 +139,9 @@ function runUserBuy() {
       connection.query(query, { item_id: answer.id }, function (err, res) {
 
         for (var i = 0; i < res.length; i++) {
+
           // var selectedItem = res[i].item_id;
-          //   console.log(selectedItem);
+          // console.log(selectedItem);
           var stockAvaible = (res[i].stock_quantity);
           console.log(stockAvaible);
           console.log("The product you have selected is: " + res[i].product_name + ". with the ID number: " + res[i].item_id);
@@ -162,6 +167,7 @@ function runUserBuy() {
             );
             console.log("The unit price is: " + res[i].price);
             console.log("The total cost of your purchase is: " + (res[i].price * answer.units));
+
             console.log("Your order was processed Thank you for buying with us!\n");
 
             // Case escenario 2: We have some units available but not the whole order. 
@@ -176,7 +182,7 @@ function runUserBuy() {
           // console.log((res[i].stock_quantity) - answer.units);\\
           secondMenu();
         }
-        
+
       });
 
 
