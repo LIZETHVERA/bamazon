@@ -5,9 +5,10 @@ The app will take in orders from customers and deplete stock from the store's in
 ## Overview:
 This is an app with Customer View: 
 
-1. With the command node `bamazonCustomer.js` we can acces to the principal menu. 
- > See the list of products:  is avaiable to show the list of  products.
-  Buy a product by ID: Open with two questions
+1. With the command node `bamazonCustomer.js` we can acces to the principal menu:
+
+ *See the list of products:  is avaiable to show the list of  products.
+ Buy a product by ID: Open with two questions
    > What is the product ID you want to buy? (The user have to enter the number ID). 
    > How many units of the product would you like to buy?: (The user have to enter the number of the quantity). 
   exit: To leave the app. 
