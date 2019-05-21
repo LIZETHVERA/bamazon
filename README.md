@@ -16,15 +16,15 @@ This is an app with Customer View:
  * exit: To leave the app. 
 
 2. Case escenario: 
-2.1. Insufficient quantity
-2.2. The product you have selected is avaiable in stock: 
+ 1. Insufficient quantity
+ 2. The product you have selected is avaiable in stock: 
 
 * The app shows:  
  * The product
  * The unit price
  * The total cost of the purchase
  
-* This is how the app works:
+3. This is how the app works:
 
 ## Gif embeded video:
 
