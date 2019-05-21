@@ -2,21 +2,21 @@
 
 The app will take in orders from customers and deplete stock from the store's inventory.
 
-### Overview:
+## Overview:
 This is an app with Customer View: 
 
 * This is how the app works:
 
-### Gif embeded video:
+## Gif embeded video:
 
 ![Watch the video](/BamazonNodeApp.gif)
 
-### YouTube video:
+## YouTube video:
 [![Node](http://img.youtube.com/vi/dY-3UXKIiTc/0.jpg)](https://www.youtube.com/watch?v=dY-3UXKIiTc)
 
-#### App Setup
+### App Setup
 
-#### DB Setup:
+### DB Setup:
 
  MySQL Database called `bamazon`.
  
@@ -33,11 +33,11 @@ This is an app with Customer View:
    * stock_quantity (how much of the product is available in stores)
 
 
-#### Config Setup
+### Config Setup
 
-var mysql = require("mysql"); 
-var inquirer = require("inquirer");
-var Table = require('cli-table3'); To show the products table.
+`var mysql = require("mysql")`
+`var inquirer = require("inquirer")`
+`var Table = require('cli-table3'); To show the products table`.
 
 
 
